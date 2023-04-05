@@ -19,15 +19,20 @@ public class PrimeDirective{
         System.out.println("Numero primo");
         return true;
     }
-    public void onlyPrimes(ArrayList<Integer> numbers){
+    public ArrayList<Integer> onlyPrimes(int[] numbers){
         ArrayList<Integer> primes = new ArrayList<Integer>();
+        for(int number: numbers){
+            if (isPrime(number)){
+                primes.add(number);
+            }
+        }
+        return primes;
 
     } 
     public static void main (String[]args){
+        int[] numerosprimos = {7, 28, 2, 0};
         PrimeDirective prime = new PrimeDirective();
-        prime.isPrime(7);
-        prime.isPrime(28);
-        prime.isPrime(2);
-        prime.isPrime(0);
+        ArrayList<Integer> novosNumeros = prime.onlyPrimes(numerosprimos);
+        System.out.println(novosNumeros);
     }
 }
